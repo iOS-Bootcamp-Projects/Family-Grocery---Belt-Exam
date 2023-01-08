@@ -1,5 +1,5 @@
 //
-//  GroceryViewController.swift
+//  AccountViewController.swift
 //  Family Grocery - Belt Exam
 //
 //  Created by Aamer Essa on 08/01/2023.
@@ -7,14 +7,12 @@
 
 import UIKit
 
-class GroceryViewController: UIViewController {
+class AccountViewController: UIViewController {
 
-    var userID = String() 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(userID)
     }
     
 

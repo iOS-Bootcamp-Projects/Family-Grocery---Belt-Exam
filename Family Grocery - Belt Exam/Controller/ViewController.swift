@@ -54,8 +54,9 @@ class ViewController: UIViewController {
                 // navigate to home
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let homeView = storyBoard.instantiateViewController(withIdentifier: "HomeView") as! HomeViewController
-                homeView.userID = authorized!.user.uid
+                let homeView = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
+                let groceryView = homeView.viewControllers![0] as! GroceryViewController
+                groceryView.userID = authorized!.user.uid
                 homeView.modalPresentationStyle = .fullScreen
                 self.present(homeView, animated: true)
                 

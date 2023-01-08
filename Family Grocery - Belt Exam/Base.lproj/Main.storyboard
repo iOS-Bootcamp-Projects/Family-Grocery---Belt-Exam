@@ -234,107 +234,166 @@
             </objects>
             <point key="canvasLocation" x="-706" y="4"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="gGk-6U-gDH">
+        <!--Tab Bar View Controller-->
+        <scene sceneID="xC6-6e-ivY">
             <objects>
-                <viewController storyboardIdentifier="HomeView" id="qIS-NI-1JA" customClass="HomeViewController" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="flD-pz-kuf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RA7-EQ-zph">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFd-Ip-lyh" userLabel="TabBarView">
-                                <rect key="frame" x="30" y="707" width="333" height="76"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eMD-EQ-nPB">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="76"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8G-KT-Cho">
-                                                <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="76"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="familyColor"/>
-                                                <connections>
-                                                    <action selector="onClickTabBarBtn:" destination="qIS-NI-1JA" eventType="touchUpInside" id="5z5-Oz-2Ms"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooQ-58-XUq">
-                                                <rect key="frame" x="166.66666666666663" y="0.0" width="166.33333333333337" height="76"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="groceryColor"/>
-                                                <connections>
-                                                    <action selector="onClickTabBarBtn:" destination="qIS-NI-1JA" eventType="touchUpInside" id="TQj-dl-yll"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="eMD-EQ-nPB" secondAttribute="bottom" id="Foh-8S-0Zh"/>
-                                    <constraint firstAttribute="height" constant="76" id="KYh-Pb-Yld"/>
-                                    <constraint firstAttribute="trailing" secondItem="eMD-EQ-nPB" secondAttribute="trailing" id="RWT-ys-8LQ"/>
-                                    <constraint firstItem="eMD-EQ-nPB" firstAttribute="top" secondItem="PFd-Ip-lyh" secondAttribute="top" id="Z5H-4j-RqQ"/>
-                                    <constraint firstItem="eMD-EQ-nPB" firstAttribute="leading" secondItem="PFd-Ip-lyh" secondAttribute="leading" id="nq5-Su-ikH"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uU7-yw-xQe"/>
-                        <color key="backgroundColor" red="0.4352940917" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="uU7-yw-xQe" firstAttribute="trailing" secondItem="PFd-Ip-lyh" secondAttribute="trailing" constant="30" id="2sc-g2-Aem"/>
-                            <constraint firstItem="uU7-yw-xQe" firstAttribute="bottom" secondItem="RA7-EQ-zph" secondAttribute="bottom" id="3E7-Tf-FAX"/>
-                            <constraint firstItem="RA7-EQ-zph" firstAttribute="leading" secondItem="uU7-yw-xQe" secondAttribute="leading" id="9v1-LM-Hp3"/>
-                            <constraint firstItem="PFd-Ip-lyh" firstAttribute="leading" secondItem="uU7-yw-xQe" secondAttribute="leading" constant="30" id="Cov-2f-Q9u"/>
-                            <constraint firstItem="RA7-EQ-zph" firstAttribute="top" secondItem="uU7-yw-xQe" secondAttribute="top" id="SM0-NY-g3t"/>
-                            <constraint firstItem="uU7-yw-xQe" firstAttribute="bottom" secondItem="PFd-Ip-lyh" secondAttribute="bottom" constant="35" id="Xwf-QB-mtX"/>
-                            <constraint firstItem="uU7-yw-xQe" firstAttribute="trailing" secondItem="RA7-EQ-zph" secondAttribute="trailing" id="dhv-nx-UBJ"/>
-                        </constraints>
-                    </view>
+                <tabBarController storyboardIdentifier="TabBar" id="f5C-LG-MkW" customClass="TabBarViewController" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Dc3-DL-1IZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.43529411759999997" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
                     <connections>
-                        <outlet property="containerView" destination="RA7-EQ-zph" id="ld9-ou-g3F"/>
-                        <outlet property="tabBarButton" destination="PFd-Ip-lyh" id="FyP-wt-BEh"/>
+                        <segue destination="0vR-Kz-DgY" kind="relationship" relationship="viewControllers" id="BDb-BG-Ovq"/>
+                        <segue destination="769-VN-WBX" kind="relationship" relationship="viewControllers" id="W9x-XO-iZE"/>
+                        <segue destination="tRx-M1-yv9" kind="relationship" relationship="viewControllers" id="yTY-aL-4Ne"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EaF-hz-6k4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h83-qj-RhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="4"/>
+            <point key="canvasLocation" x="-282" y="671"/>
         </scene>
         <!--Grocery View Controller-->
         <scene sceneID="vc5-Cf-XCZ">
             <objects>
                 <viewController storyboardIdentifier="GroceryView" id="0vR-Kz-DgY" customClass="GroceryViewController" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pzg-pg-3qb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9j-H6-FAi">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" red="0.4352940917" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" red="0.4352940917" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <navigationItem title="Groceries to Buy" id="fh0-yI-sOh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0gh-Qd-i2p">
+                                            <connections>
+                                                <action selector="showAddNewItemForm:" destination="0vR-Kz-DgY" id="VSf-Uu-8j9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-An-dl4">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="kzM-TU-uen" customClass="GroceriesTableCell" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kzM-TU-uen" id="Ceq-4M-o45">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QX2-MC-sD0">
+                                                    <rect key="frame" x="5" y="5" width="383" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isp-gm-Rwz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="35"/>
+                                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkN-5c-fZR">
+                                                            <rect key="frame" x="0.0" y="35" width="383" height="35"/>
+                                                            <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="13"/>
+                                                            <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QX2-MC-sD0" firstAttribute="leading" secondItem="Ceq-4M-o45" secondAttribute="leading" constant="5" id="DIF-0h-b4D"/>
+                                                <constraint firstAttribute="trailing" secondItem="QX2-MC-sD0" secondAttribute="trailing" constant="5" id="Oxy-4b-Zx1"/>
+                                                <constraint firstItem="QX2-MC-sD0" firstAttribute="top" secondItem="Ceq-4M-o45" secondAttribute="top" constant="5" id="Rpm-8T-RLd"/>
+                                                <constraint firstAttribute="bottom" secondItem="QX2-MC-sD0" secondAttribute="bottom" constant="5" id="rrZ-iE-eVy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemCreator" destination="HkN-5c-fZR" id="TF5-BK-Zf1"/>
+                                            <outlet property="itemName" destination="isp-gm-Rwz" id="Vnk-w3-vHN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HHZ-CR-eQ9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.4352940917" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="x9j-H6-FAi" firstAttribute="trailing" secondItem="UqT-An-dl4" secondAttribute="trailing" id="Iuu-Mj-b1s"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="top" secondItem="x9j-H6-FAi" secondAttribute="bottom" id="JET-h9-YYu"/>
+                            <constraint firstItem="HHZ-CR-eQ9" firstAttribute="bottom" secondItem="UqT-An-dl4" secondAttribute="bottom" id="Q8t-Gr-Gyx"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="leading" secondItem="HHZ-CR-eQ9" secondAttribute="leading" id="ST2-I5-QW1"/>
+                            <constraint firstItem="x9j-H6-FAi" firstAttribute="top" secondItem="HHZ-CR-eQ9" secondAttribute="top" id="TX3-9a-v17"/>
+                            <constraint firstItem="HHZ-CR-eQ9" firstAttribute="trailing" secondItem="UqT-An-dl4" secondAttribute="trailing" id="VXn-4U-6fh"/>
+                            <constraint firstItem="x9j-H6-FAi" firstAttribute="leading" secondItem="UqT-An-dl4" secondAttribute="leading" id="VYs-vL-XFF"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="grocery" selectedImage="grocery" id="Df9-GL-aR9">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="griceriesTable" destination="UqT-An-dl4" id="Asi-pY-SWR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVp-Kl-DXY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2241" y="-54"/>
+            <point key="canvasLocation" x="-973" y="1406"/>
         </scene>
         <!--Family View Controller-->
         <scene sceneID="5ic-2h-wOB">
             <objects>
                 <viewController storyboardIdentifier="FamilyView" id="769-VN-WBX" customClass="FamilyViewController" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D3E-e3-y4H">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FAa-uP-5sp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="account" selectedImage="account" id="At9-p0-vhi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUq-as-u61" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3247" y="-22"/>
+            <point key="canvasLocation" x="972" y="1407"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="DOd-Mv-dgi">
+            <objects>
+                <viewController storyboardIdentifier="AccountView" id="tRx-M1-yv9" customClass="AccountViewController" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SH7-Qn-xFn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QQI-le-Dnh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="family" selectedImage="family" id="aFn-EV-2S5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yj-uC-70Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="1406"/>
         </scene>
     </scenes>
     <resources>
-        <image name="familyColor" width="32" height="32"/>
-        <image name="groceryColor" width="32" height="32"/>
+        <image name="account" width="32" height="32"/>
+        <image name="family" width="32" height="32"/>
+        <image name="grocery" width="32" height="32"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
