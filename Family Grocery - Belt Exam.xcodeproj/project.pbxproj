@@ -7,15 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC96632296AA81200748EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FC96631296AA81200748EFC /* GoogleService-Info.plist */; };
+		3FC96635296AA8C900748EFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3FC96634296AA8C900748EFC /* FirebaseAuth */; };
+		3FC96637296AA8C900748EFC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3FC96636296AA8C900748EFC /* FirebaseDatabase */; };
+		3FC96639296AA8C900748EFC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3FC96638296AA8C900748EFC /* FirebaseFirestore */; };
+		3FC9663B296AA8C900748EFC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3FC9663A296AA8C900748EFC /* FirebaseStorage */; };
+		3FC9663E296AAD7B00748EFC /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9663D296AAD7B00748EFC /* userModel.swift */; };
+		3FC96642296AD77D00748EFC /* GroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC96641296AD77D00748EFC /* GroceryViewController.swift */; };
+		3FC96644296ADBE100748EFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC96643296ADBE100748EFC /* HomeViewController.swift */; };
+		3FC96646296AE21200748EFC /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC96645296AE21200748EFC /* FamilyViewController.swift */; };
 		3FFAB817296A9CAF007B7FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAB816296A9CAF007B7FBD /* AppDelegate.swift */; };
 		3FFAB819296A9CAF007B7FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAB818296A9CAF007B7FBD /* SceneDelegate.swift */; };
 		3FFAB81B296A9CAF007B7FBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAB81A296A9CAF007B7FBD /* ViewController.swift */; };
 		3FFAB81E296A9CAF007B7FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAB81C296A9CAF007B7FBD /* Main.storyboard */; };
 		3FFAB820296A9CB1007B7FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAB81F296A9CB1007B7FBD /* Assets.xcassets */; };
 		3FFAB823296A9CB1007B7FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAB821296A9CB1007B7FBD /* LaunchScreen.storyboard */; };
+		3FFAB82C296AA205007B7FBD /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAB82B296AA205007B7FBD /* SingUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FC96631296AA81200748EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FC9663D296AAD7B00748EFC /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
+		3FC96641296AD77D00748EFC /* GroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewController.swift; sourceTree = "<group>"; };
+		3FC96643296ADBE100748EFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3FC96645296AE21200748EFC /* FamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		3FFAB813296A9CAF007B7FBD /* Family Grocery - Belt Exam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Grocery - Belt Exam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAB816296A9CAF007B7FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FFAB818296A9CAF007B7FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +39,7 @@
 		3FFAB81F296A9CB1007B7FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FFAB822296A9CB1007B7FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FFAB824296A9CB1007B7FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FFAB82B296AA205007B7FBD /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +47,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC96637296AA8C900748EFC /* FirebaseDatabase in Frameworks */,
+				3FC9663B296AA8C900748EFC /* FirebaseStorage in Frameworks */,
+				3FC96635296AA8C900748EFC /* FirebaseAuth in Frameworks */,
+				3FC96639296AA8C900748EFC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FC9663C296AAD5D00748EFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9663D296AAD7B00748EFC /* userModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3FFAB80A296A9CAE007B7FBD = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +84,29 @@
 		3FFAB815296A9CAF007B7FBD /* Family Grocery - Belt Exam */ = {
 			isa = PBXGroup;
 			children = (
+				3FC9663C296AAD5D00748EFC /* Model */,
+				3FFAB82A296AA1E0007B7FBD /* Controller */,
 				3FFAB816296A9CAF007B7FBD /* AppDelegate.swift */,
 				3FFAB818296A9CAF007B7FBD /* SceneDelegate.swift */,
-				3FFAB81A296A9CAF007B7FBD /* ViewController.swift */,
 				3FFAB81C296A9CAF007B7FBD /* Main.storyboard */,
 				3FFAB81F296A9CB1007B7FBD /* Assets.xcassets */,
 				3FFAB821296A9CB1007B7FBD /* LaunchScreen.storyboard */,
 				3FFAB824296A9CB1007B7FBD /* Info.plist */,
+				3FC96631296AA81200748EFC /* GoogleService-Info.plist */,
 			);
 			path = "Family Grocery - Belt Exam";
+			sourceTree = "<group>";
+		};
+		3FFAB82A296AA1E0007B7FBD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3FFAB81A296A9CAF007B7FBD /* ViewController.swift */,
+				3FFAB82B296AA205007B7FBD /* SingUpViewController.swift */,
+				3FC96641296AD77D00748EFC /* GroceryViewController.swift */,
+				3FC96643296ADBE100748EFC /* HomeViewController.swift */,
+				3FC96645296AE21200748EFC /* FamilyViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +125,12 @@
 			dependencies = (
 			);
 			name = "Family Grocery - Belt Exam";
+			packageProductDependencies = (
+				3FC96634296AA8C900748EFC /* FirebaseAuth */,
+				3FC96636296AA8C900748EFC /* FirebaseDatabase */,
+				3FC96638296AA8C900748EFC /* FirebaseFirestore */,
+				3FC9663A296AA8C900748EFC /* FirebaseStorage */,
+			);
 			productName = "Family Grocery - Belt Exam";
 			productReference = 3FFAB813296A9CAF007B7FBD /* Family Grocery - Belt Exam.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 3FFAB80A296A9CAE007B7FBD;
+			packageReferences = (
+				3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3FFAB814296A9CAF007B7FBD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFAB823296A9CB1007B7FBD /* LaunchScreen.storyboard in Resources */,
+				3FC96632296AA81200748EFC /* GoogleService-Info.plist in Resources */,
 				3FFAB820296A9CB1007B7FBD /* Assets.xcassets in Resources */,
 				3FFAB81E296A9CAF007B7FBD /* Main.storyboard in Resources */,
 			);
@@ -140,6 +192,11 @@
 			files = (
 				3FFAB81B296A9CAF007B7FBD /* ViewController.swift in Sources */,
 				3FFAB817296A9CAF007B7FBD /* AppDelegate.swift in Sources */,
+				3FC96642296AD77D00748EFC /* GroceryViewController.swift in Sources */,
+				3FC96644296ADBE100748EFC /* HomeViewController.swift in Sources */,
+				3FC9663E296AAD7B00748EFC /* userModel.swift in Sources */,
+				3FFAB82C296AA205007B7FBD /* SingUpViewController.swift in Sources */,
+				3FC96646296AE21200748EFC /* FamilyViewController.swift in Sources */,
 				3FFAB819296A9CAF007B7FBD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +413,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FC96634296AA8C900748EFC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		3FC96636296AA8C900748EFC /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		3FC96638296AA8C900748EFC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		3FC9663A296AA8C900748EFC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FFAB80B296A9CAE007B7FBD /* Project object */;
 }
