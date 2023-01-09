@@ -15,23 +15,20 @@ class GroceryViewController: UIViewController {
     
     @IBOutlet weak var griceriesTable: UITableView!
     var userID = String()
-    var groceries = [NSDictionary]()
+    var groceries = [Grocery]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(userID)
+        
         griceriesTable.delegate = self
         griceriesTable.dataSource = self
         
       observeGrocery()
     }
     
-    @objc func handleSaveBtn(){
-        print("AAA")
-    }
-
+  
     
     // MARK: - Action 
    
@@ -66,20 +63,43 @@ class GroceryViewController: UIViewController {
         let dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Grocery").child("\(UUID())")
         dbRef.setValue(["name":itemName,"creatorEmail":Auth.auth().currentUser!.email])
+        groceries.removeAll()
         
         
     }
     
-    func observeGrocery(){
+    func editItem(itemName:String,itemID:String){
         
+        let dbRef : DatabaseReference!
+        dbRef = Database.database().reference().child("Grocery").child("\(itemID)")
+        dbRef.updateChildValues(["name":itemName,"creatorEmail":"Modified by \(Auth.auth().currentUser!.email!)"])
+        groceries.removeAll()
+        observeGrocery()
+//        dbRef.observe(.value) { snapShot in
+//            if let grocery = snapShot.value as? NSDictionary {
+//                let newGrocery = Grocery(id: snapShot.key, name: grocery["name"] as! String, creatorEmail: grocery["creatorEmail"] as! String)
+//                self.groceries.append(newGrocery)
+//                self.griceriesTable.reloadData()
+//            }
+//        }
+        
+    }
+    
+    func observeGrocery(){
+       
+        print(groceries)
         let dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Grocery")
         dbRef.observe(.childAdded) { snapShot ,err in
+
+                    if let grocery = snapShot.value as? NSDictionary {
+                        
+                        print(grocery["creatorEmail"] as? String)
+                        print(grocery["name"] as! String)
+                        let newGrocery = Grocery(id: snapShot.key, name: grocery["name"] as! String, creatorEmail: grocery["creatorEmail"] as! String)
+                        self.groceries.append(newGrocery)
+                        self.griceriesTable.reloadData()
             
-            if let grocery = snapShot.value as? NSDictionary {
-                self.groceries.append(grocery)
-                print(self.groceries)
-                self.griceriesTable.reloadData()
             }
         }
     }
@@ -92,27 +112,58 @@ extension GroceryViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = griceriesTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! GroceriesTableCell
-        cell.itemName.text = groceries[indexPath.row]["name"] as? String
-        cell.itemCreator.text = "Created by \(groceries[indexPath.row]["creatorEmail"] as! String)"
+        cell.itemName.text = groceries[indexPath.row].name
+        cell.itemCreator.text = groceries[indexPath.row].creatorEmail
         return cell
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let buyItAction = UIContextualAction(style: .destructive, title: "Buy it") { action, view, completionHandler in
-            print("delete ")
+            
+            var dbRef: DatabaseReference!
+            dbRef = Database.database().reference().child("Grocery").child("\(self.groceries[indexPath.row].id)")
+            dbRef.removeValue(){err,ref in
+                if err != nil {
+                    print("error")
+                } else {
+                    self.groceries.removeAll()
+                    self.observeGrocery()
+                }
+            }
+            
             completionHandler(true)
         }
         
-        let editAction = UIContextualAction(style: .destructive, title: "Edit") { action, view, completionHandler in
-           print("edit")
-
-            completionHandler(true)
-        }
-        editAction.backgroundColor = .blue
         buyItAction.backgroundColor = .green
         
-        return UISwipeActionsConfiguration(actions: [buyItAction,editAction])
+        return UISwipeActionsConfiguration(actions: [buyItAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let alert = UIAlertController(title: "Edit Item", message: "Please enter the name of the item", preferredStyle: .alert)
+
+            alert.addTextField { groceryNameField in
+                groceryNameField.placeholder = "bread,banana, etc"
+                groceryNameField.text = self.groceries[indexPath.row].name
+                
+                
+            }
+        
+            alert.addAction(UIAlertAction(title: "Add", style: .default,handler: { handler in
+                let nameTextField = alert.textFields![0] as UITextField
+    
+                if let itemName = nameTextField.text {
+                    if itemName != ""{
+                        self.editItem(itemName: itemName, itemID: self.groceries[indexPath.row].id)
+                    }
+                }
+            }))
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true)
+        
     }
     
     

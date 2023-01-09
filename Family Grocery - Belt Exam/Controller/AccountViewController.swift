@@ -25,5 +25,8 @@ class AccountViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func logout(_ sender: Any) {
+        print("logout")
+    }
+    
 }
