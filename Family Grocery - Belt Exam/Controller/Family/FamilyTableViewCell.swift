@@ -10,6 +10,7 @@ import UIKit
 class FamilyTableViewCell: UITableViewCell {
 
    
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     override func awakeFromNib() {

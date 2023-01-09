@@ -11,32 +11,32 @@ import FirebaseDatabase
 import FirebaseFirestore
 import FirebaseAuth
 class GroceryViewController: UIViewController {
-
+    
     
     @IBOutlet weak var griceriesTable: UITableView!
     var userID = String()
-    var groceries = [Grocery]()
+    var groceries = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         griceriesTable.delegate = self
         griceriesTable.dataSource = self
         
-      observeGrocery()
+        observeGrocery()
     }
     
-  
     
-    // MARK: - Action 
-   
+    
+    // MARK: - Action
+    
     @IBAction func showAddNewItemForm(_ sender: UIBarButtonItem) {
-                let alert = UIAlertController(title: "Add New Item", message: "Please enter the name of the item", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New Item", message: "Please enter the name of the item", preferredStyle: .alert)
         
-                alert.addTextField { sportNameField in
-                    sportNameField.placeholder = "bread,banana, etc" }
+        alert.addTextField { itemNameField in
+            itemNameField.placeholder = "bread,banana, etc" }
         alert.addAction(UIAlertAction(title: "Add", style: .default,handler: { handler in
             let nameTextField = alert.textFields![0] as UITextField
             
@@ -44,15 +44,15 @@ class GroceryViewController: UIViewController {
                 if itemName != ""{
                     self.addNewItem(itemName: itemName)
                 }
-               
+                
                 
             }
         }))
         
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         
-                self.present(alert, animated: true)
+        self.present(alert, animated: true)
         
     }// showAddNewItemForm()
     
@@ -60,60 +60,54 @@ class GroceryViewController: UIViewController {
     
     func addNewItem(itemName:String){
         
+        let groceryID = UUID()
         let dbRef : DatabaseReference!
-        dbRef = Database.database().reference().child("Grocery").child("\(UUID())")
-        dbRef.setValue(["name":itemName,"creatorEmail":Auth.auth().currentUser!.email])
-        groceries.removeAll()
-        
-        
+            dbRef = Database.database().reference().child("Grocery").child("\(groceryID)")
+            dbRef.setValue(["id":"\(groceryID)","name":itemName,"creatorEmail":" Created By \(Auth.auth().currentUser!.email!)"])
     }
     
     func editItem(itemName:String,itemID:String){
         
         let dbRef : DatabaseReference!
-        dbRef = Database.database().reference().child("Grocery").child("\(itemID)")
-        dbRef.updateChildValues(["name":itemName,"creatorEmail":"Modified by \(Auth.auth().currentUser!.email!)"])
-        groceries.removeAll()
-        observeGrocery()
-//        dbRef.observe(.value) { snapShot in
-//            if let grocery = snapShot.value as? NSDictionary {
-//                let newGrocery = Grocery(id: snapShot.key, name: grocery["name"] as! String, creatorEmail: grocery["creatorEmail"] as! String)
-//                self.groceries.append(newGrocery)
-//                self.griceriesTable.reloadData()
-//            }
-//        }
-        
+            dbRef = Database.database().reference().child("Grocery").child("\(itemID)")
+            dbRef.updateChildValues(["name":itemName,"creatorEmail":"Modified by \(Auth.auth().currentUser!.email!)"])
     }
     
     func observeGrocery(){
-       
-        print(groceries)
+        
         let dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Grocery")
-        dbRef.observe(.childAdded) { snapShot ,err in
 
-                    if let grocery = snapShot.value as? NSDictionary {
-                        
-                        print(grocery["creatorEmail"] as? String)
-                        print(grocery["name"] as! String)
-                        let newGrocery = Grocery(id: snapShot.key, name: grocery["name"] as! String, creatorEmail: grocery["creatorEmail"] as! String)
-                        self.groceries.append(newGrocery)
-                        self.griceriesTable.reloadData()
+        dbRef.observe(.value) { snapShot , err in
             
+                if let groceries = snapShot.value as? NSDictionary {
+                    self.groceries.removeAll()
+    
+                    DispatchQueue.main.async {
+                        self.groceries.removeAll()
+                        for grocery in groceries {
+                            self.groceries.append(grocery.value as! NSDictionary)
+                        }
+                        
+                        self.griceriesTable.reloadData()
+                       
+                    }
             }
         }
+        
     }
 }
-
 extension GroceryViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         return groceries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = griceriesTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! GroceriesTableCell
-        cell.itemName.text = groceries[indexPath.row].name
-        cell.itemCreator.text = groceries[indexPath.row].creatorEmail
+        cell.itemCreator.text = groceries[indexPath.row]["creatorEmail"] as? String
+        cell.itemName.text = groceries[indexPath.row]["name"] as? String
+       
         return cell
     }
     
@@ -122,7 +116,7 @@ extension GroceryViewController: UITableViewDelegate,UITableViewDataSource {
         let buyItAction = UIContextualAction(style: .destructive, title: "Buy it") { action, view, completionHandler in
             
             var dbRef: DatabaseReference!
-            dbRef = Database.database().reference().child("Grocery").child("\(self.groceries[indexPath.row].id)")
+            dbRef = Database.database().reference().child("Grocery").child("\(self.groceries[indexPath.row]["id"] as! String)")
             dbRef.removeValue(){err,ref in
                 if err != nil {
                     print("error")
@@ -146,7 +140,7 @@ extension GroceryViewController: UITableViewDelegate,UITableViewDataSource {
 
             alert.addTextField { groceryNameField in
                 groceryNameField.placeholder = "bread,banana, etc"
-                groceryNameField.text = self.groceries[indexPath.row].name
+                groceryNameField.text = self.groceries[indexPath.row]["name"] as? String
                 
                 
             }
@@ -156,7 +150,7 @@ extension GroceryViewController: UITableViewDelegate,UITableViewDataSource {
     
                 if let itemName = nameTextField.text {
                     if itemName != ""{
-                        self.editItem(itemName: itemName, itemID: self.groceries[indexPath.row].id)
+                        self.editItem(itemName: itemName, itemID: self.groceries[indexPath.row]["id"] as! String)
                     }
                 }
             }))

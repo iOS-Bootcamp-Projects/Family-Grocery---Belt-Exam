@@ -10,6 +10,7 @@
 		3F13AE24296B074D00DC6BDD /* GroceriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13AE23296B074D00DC6BDD /* GroceriesTableCell.swift */; };
 		3F13AE26296B092C00DC6BDD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13AE25296B092C00DC6BDD /* AccountViewController.swift */; };
 		3F66ADD5296BEEF000E0FAAB /* FamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */; };
+		3F82A127296C4206005C897D /* CustomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F82A126296C4206005C897D /* CustomeView.swift */; };
 		3FAAAB7D296B33AE007B1495 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */; };
 		3FC96632296AA81200748EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FC96631296AA81200748EFC /* GoogleService-Info.plist */; };
 		3FC96635296AA8C900748EFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3FC96634296AA8C900748EFC /* FirebaseAuth */; };
@@ -32,6 +33,7 @@
 		3F13AE23296B074D00DC6BDD /* GroceriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTableCell.swift; sourceTree = "<group>"; };
 		3F13AE25296B092C00DC6BDD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyTableViewCell.swift; sourceTree = "<group>"; };
+		3F82A126296C4206005C897D /* CustomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeView.swift; sourceTree = "<group>"; };
 		3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3FC96631296AA81200748EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FC9663D296AAD7B00748EFC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		3F66ADD3296BEEBD00E0FAAB /* Family */ = {
 			isa = PBXGroup;
 			children = (
+				3FC96645296AE21200748EFC /* FamilyViewController.swift */,
 				3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */,
 			);
 			path = Family;
@@ -127,9 +130,9 @@
 				3F13AE27296B098A00DC6BDD /* Grocery */,
 				3FFAB81A296A9CAF007B7FBD /* ViewController.swift */,
 				3FFAB82B296AA205007B7FBD /* SingUpViewController.swift */,
-				3FC96645296AE21200748EFC /* FamilyViewController.swift */,
 				3F13AE25296B092C00DC6BDD /* AccountViewController.swift */,
 				3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */,
+				3F82A126296C4206005C897D /* CustomeView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				3FC9663E296AAD7B00748EFC /* Model.swift in Sources */,
 				3FFAB82C296AA205007B7FBD /* SingUpViewController.swift in Sources */,
 				3F13AE26296B092C00DC6BDD /* AccountViewController.swift in Sources */,
+				3F82A127296C4206005C897D /* CustomeView.swift in Sources */,
 				3F66ADD5296BEEF000E0FAAB /* FamilyTableViewCell.swift in Sources */,
 				3FC96646296AE21200748EFC /* FamilyViewController.swift in Sources */,
 				3FFAB819296A9CAF007B7FBD /* SceneDelegate.swift in Sources */,

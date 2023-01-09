@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 class ViewController: UIViewController {
 
+    @IBOutlet weak var googleBtn: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var singUpBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
@@ -19,11 +20,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginBtn.backgroundColor = .white
+        
         loginBtn.layer.cornerRadius = 15
-        singUpBtn.backgroundColor = .white
+        
         singUpBtn.layer.cornerRadius = 15
         errorMessage.isHidden = true
+       
+        
     }
 
     //Mark: Navigation
@@ -55,7 +58,7 @@ class ViewController: UIViewController {
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let homeView = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
-                let groceryView = homeView.viewControllers![0] as! GroceryViewController
+                let groceryView = homeView.viewControllers![2] as! AccountViewController 
                 groceryView.userID = authorized!.user.uid
                 homeView.modalPresentationStyle = .fullScreen
                 self.present(homeView, animated: true)
@@ -67,6 +70,8 @@ class ViewController: UIViewController {
         //login
         
     }
+    
+    
     
 }
 
