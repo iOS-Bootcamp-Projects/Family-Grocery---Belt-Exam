@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F13AE24296B074D00DC6BDD /* GroceriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13AE23296B074D00DC6BDD /* GroceriesTableCell.swift */; };
 		3F13AE26296B092C00DC6BDD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13AE25296B092C00DC6BDD /* AccountViewController.swift */; };
+		3F2A3008296CD9F1006FEF1F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A3007296CD9F1006FEF1F /* FacebookCore */; };
+		3F2A300A296CD9F1006FEF1F /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A3009296CD9F1006FEF1F /* FacebookGamingServices */; };
+		3F2A300C296CD9F1006FEF1F /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A300B296CD9F1006FEF1F /* FacebookLogin */; };
+		3F2A300E296CD9F1006FEF1F /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A300D296CD9F1006FEF1F /* FacebookShare */; };
 		3F66ADD5296BEEF000E0FAAB /* FamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */; };
 		3F82A127296C4206005C897D /* CustomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F82A126296C4206005C897D /* CustomeView.swift */; };
 		3FAAAB7D296B33AE007B1495 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */; };
@@ -32,6 +36,7 @@
 /* Begin PBXFileReference section */
 		3F13AE23296B074D00DC6BDD /* GroceriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTableCell.swift; sourceTree = "<group>"; };
 		3F13AE25296B092C00DC6BDD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3F2A3005296CD183006FEF1F /* Family Grocery - Belt Exam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Family Grocery - Belt Exam.entitlements"; sourceTree = "<group>"; };
 		3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyTableViewCell.swift; sourceTree = "<group>"; };
 		3F82A126296C4206005C897D /* CustomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeView.swift; sourceTree = "<group>"; };
 		3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -56,8 +61,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC96637296AA8C900748EFC /* FirebaseDatabase in Frameworks */,
+				3F2A3008296CD9F1006FEF1F /* FacebookCore in Frameworks */,
+				3F2A300E296CD9F1006FEF1F /* FacebookShare in Frameworks */,
 				3FC9663B296AA8C900748EFC /* FirebaseStorage in Frameworks */,
+				3F2A300A296CD9F1006FEF1F /* FacebookGamingServices in Frameworks */,
 				3FC96635296AA8C900748EFC /* FirebaseAuth in Frameworks */,
+				3F2A300C296CD9F1006FEF1F /* FacebookLogin in Frameworks */,
 				3FC96639296AA8C900748EFC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +119,7 @@
 		3FFAB815296A9CAF007B7FBD /* Family Grocery - Belt Exam */ = {
 			isa = PBXGroup;
 			children = (
+				3F2A3005296CD183006FEF1F /* Family Grocery - Belt Exam.entitlements */,
 				3FC9663C296AAD5D00748EFC /* Model */,
 				3FFAB82A296AA1E0007B7FBD /* Controller */,
 				3FFAB816296A9CAF007B7FBD /* AppDelegate.swift */,
@@ -158,6 +168,10 @@
 				3FC96636296AA8C900748EFC /* FirebaseDatabase */,
 				3FC96638296AA8C900748EFC /* FirebaseFirestore */,
 				3FC9663A296AA8C900748EFC /* FirebaseStorage */,
+				3F2A3007296CD9F1006FEF1F /* FacebookCore */,
+				3F2A3009296CD9F1006FEF1F /* FacebookGamingServices */,
+				3F2A300B296CD9F1006FEF1F /* FacebookLogin */,
+				3F2A300D296CD9F1006FEF1F /* FacebookShare */,
 			);
 			productName = "Family Grocery - Belt Exam";
 			productReference = 3FFAB813296A9CAF007B7FBD /* Family Grocery - Belt Exam.app */;
@@ -189,6 +203,7 @@
 			mainGroup = 3FFAB80A296A9CAE007B7FBD;
 			packageReferences = (
 				3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 3FFAB814296A9CAF007B7FBD /* Products */;
 			projectDirPath = "";
@@ -374,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Family Grocery - Belt Exam/Family Grocery - Belt Exam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -401,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Family Grocery - Belt Exam/Family Grocery - Belt Exam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -447,6 +464,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -458,6 +483,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F2A3007296CD9F1006FEF1F /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		3F2A3009296CD9F1006FEF1F /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		3F2A300B296CD9F1006FEF1F /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		3F2A300D296CD9F1006FEF1F /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
 		3FC96634296AA8C900748EFC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

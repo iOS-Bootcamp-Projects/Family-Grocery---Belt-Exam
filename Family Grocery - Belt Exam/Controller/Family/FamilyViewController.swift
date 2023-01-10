@@ -17,6 +17,7 @@ class FamilyViewController: UIViewController {
     @IBOutlet weak var familOnlineTabel: UITableView!
     
     var users = [NSDictionary]()
+    var userID = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,23 +28,28 @@ class FamilyViewController: UIViewController {
     
     func observeOnlineUsers(){
         
+//        let currentUserID = Auth.auth().currentUser?.uid
         var dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Online")
         dbRef.observe(.value) { snapshot , err in
             
             if let usersOnline = snapshot.value as? NSDictionary {
-                
+                self.users.removeAll()
                 for user in usersOnline {
                     
-                    if Auth.auth().currentUser!.uid != user.key as! String {
+                    if self.userID != user.key as? String {
                         
                         var usersDbRef : DatabaseReference!
                         usersDbRef = Database.database().reference().child("Users").child("\(user.key)")
                         usersDbRef.observe(.value) { userInfo in
                             
                             if let user = userInfo.value as? NSDictionary {
-                                self.users.append(user)
-                                self.familOnlineTabel.reloadData()
+                                DispatchQueue.main.async {
+                                    self.users.append(user)
+                                    self.familOnlineTabel.reloadData()
+                                }
+                      
+                               
                             }
                         }
                     }

@@ -116,6 +116,7 @@ class SingUpViewController: UIViewController,  UIImagePickerControllerDelegate &
                    
                    profileImageView.image = image
                    selectedProfileImage = image.pngData()!
+                   print(image.pngData())
 
                    }
                    picker.dismiss(animated: true)

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import FacebookCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterDelegate{
 
@@ -16,8 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterD
         // Override point for customization after application launch.
         FirebaseApp.configure()
         UNUserNotificationCenter.current().delegate = self
+        ApplicationDelegate.shared.application(
+                   application,
+                   didFinishLaunchingWithOptions: launchOptions
+               )
+        
         return true
     }
+    
+    func application(
+            _ app: UIApplication,
+            open url: URL,
+            options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+        ) -> Bool {
+            ApplicationDelegate.shared.application(
+                app,
+                open: url,
+                sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+            )
+        }
+    
 
     // MARK: UISceneSession Lifecycle
 

@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import FacebookLogin
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -102,11 +103,13 @@ class AccountViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func logout(_ sender: Any) {
-        
+        let loginManager = LoginManager()
         let firebaseAuth = Auth.auth()
+        
         do{
             
             try firebaseAuth.signOut()
+            loginManager.logOut()
             
             // remove the user from online
             var dbRef : DatabaseReference!

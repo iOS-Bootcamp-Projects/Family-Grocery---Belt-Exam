@@ -16,6 +16,7 @@ class GroceryViewController: UIViewController {
     @IBOutlet weak var griceriesTable: UITableView!
     var userID = String()
     var groceries = [NSDictionary]()
+    var userEmail = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +64,14 @@ class GroceryViewController: UIViewController {
         let groceryID = UUID()
         let dbRef : DatabaseReference!
             dbRef = Database.database().reference().child("Grocery").child("\(groceryID)")
-            dbRef.setValue(["id":"\(groceryID)","name":itemName,"creatorEmail":" Created By \(Auth.auth().currentUser!.email!)"])
+            dbRef.setValue(["id":"\(groceryID)","name":itemName,"creatorEmail":" Created By \(userEmail)"])
     }
     
     func editItem(itemName:String,itemID:String){
         
         let dbRef : DatabaseReference!
             dbRef = Database.database().reference().child("Grocery").child("\(itemID)")
-            dbRef.updateChildValues(["name":itemName,"creatorEmail":"Modified by \(Auth.auth().currentUser!.email!)"])
+            dbRef.updateChildValues(["name":itemName,"creatorEmail":"Modified by \(userEmail)"])
     }
     
     func observeGrocery(){
