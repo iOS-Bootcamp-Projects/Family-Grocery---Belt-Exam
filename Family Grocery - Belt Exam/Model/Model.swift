@@ -26,15 +26,4 @@ struct User:Codable {
 }
 
 
-//class GroceryModel: ObservableObject {
-//    
-////    var dbRef:DatabaseReference!
-//    var dbRef = Database.database().reference().child("Grocery")
-//    
-//    
-//    func buyIt(itemID:String,completionHandler:@escaping(_ err:Error?,ref:DatabaseReference?)) {
-//        
-//        dbRef.child("\(itemID)").removeValue() {completionHandler}
-//    }
-//    
-//}
+

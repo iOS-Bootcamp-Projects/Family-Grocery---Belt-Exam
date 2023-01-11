@@ -14,10 +14,13 @@ import FirebaseStorage
 
 class FamilyViewController: UIViewController {
     
+    //MARK: Connections
     @IBOutlet weak var familOnlineTabel: UITableView!
     
+    //MARK: Vars
     var users = [NSDictionary]()
     var userID = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,12 +31,13 @@ class FamilyViewController: UIViewController {
     
     func observeOnlineUsers(){
         
-//        let currentUserID = Auth.auth().currentUser?.uid
         var dbRef : DatabaseReference!
-        dbRef = Database.database().reference().child("Online")
-        dbRef.observe(.value) { snapshot , err in
+            dbRef = Database.database().reference().child("Online")
+            dbRef.observe(.value) { snapshot , err in
+                
             self.users.removeAll()
             if let usersOnline = snapshot.value as? NSDictionary {
+                
                 for user in usersOnline {
                     
                     if self.userID != user.key as? String  {
@@ -47,23 +51,18 @@ class FamilyViewController: UIViewController {
                                     self.users.append(user)
                                     self.familOnlineTabel.reloadData()
                                 }
-                      
-                               
-                            }
-                        }
+                            } // end of user
+                        }// end of observe
+                    
                     } else if self.users.count == 0 {
+
                         self.familOnlineTabel.reloadData()
-                    }
-                }
-                
-                
+                    }// end of else
+                } //  end of for
             } else{
                 self.familOnlineTabel.reloadData()
             }
-        }
-        
-        
-        
+        } // end of dbRef observe
     }
 }
 
@@ -78,7 +77,7 @@ extension FamilyViewController: UITableViewDelegate,UITableViewDataSource{
         //get image fot Storage
         
         let storageRef = Storage.storage().reference().child("\(users[indexPath.row]["profileImage"] as! String)")
-                  storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+            storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
                       
                       if error == nil {
                           DispatchQueue.main.async {
@@ -86,12 +85,8 @@ extension FamilyViewController: UITableViewDelegate,UITableViewDataSource{
                           }
                       }
                   }
-
-        
         cell.userName.text = users[indexPath.row]["fullName"] as? String
         cell.userEmail.text = users[indexPath.row]["email"] as? String
         return cell
     }
-    
-    
 }

@@ -18,7 +18,7 @@ class ciercleView: UIView{
         super.draw(rect)
         
         let cLayer = CAShapeLayer()
-        cLayer.frame = bounds
+            cLayer.frame = bounds
         
         let radius = min(bounds.width, bounds.height) / 2.0
         let centerPoint = CGPoint(x: bounds.width / 2.0, y: bounds.height / 2.0)

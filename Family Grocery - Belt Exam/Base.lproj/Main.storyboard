@@ -24,7 +24,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYd-80-v3r">
                                 <rect key="frame" x="50" y="353" width="293" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4Q-b1-dSI">
                                 <rect key="frame" x="50" y="407" width="152.33333333333334" height="36.666666666666686"/>
@@ -91,8 +91,8 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXF-4N-tiY">
                                 <rect key="frame" x="60" y="397" width="273" height="0.0"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="11"/>
-                                <color key="textColor" red="0.81960784310000001" green="0.26274509800000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrG-Wv-trK">
@@ -219,12 +219,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-qW-eUB">
                                 <rect key="frame" x="50" y="478" width="293" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wh0-eS-UVx">
                                 <rect key="frame" x="50" y="532" width="293" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6M-QU-bjd">
                                 <rect key="frame" x="50" y="596" width="293" height="35"/>
@@ -237,7 +237,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-KC-Ble">
                                 <rect key="frame" x="60" y="576" width="283" height="0.0"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                 <color key="textColor" red="0.82115590569999997" green="0.26364442710000002" blue="0.2470799088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -338,7 +338,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-An-dl4">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="154" width="393" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="kzM-TU-uen" customClass="GroceriesTableCell" customModule="Family_Grocery___Belt_Exam" customModuleProvider="target">
@@ -380,17 +380,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="a7R-ms-aPV">
+                                <rect key="frame" x="132" y="113" width="129" height="32"/>
+                                <segments>
+                                    <segment title="Not Yet"/>
+                                    <segment title="Buy it"/>
+                                </segments>
+                                <connections>
+                                    <action selector="groceriesType:" destination="0vR-Kz-DgY" eventType="valueChanged" id="QLa-vP-oE3"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HHZ-CR-eQ9"/>
                         <color key="backgroundColor" red="0.4352940917" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="x9j-H6-FAi" firstAttribute="trailing" secondItem="UqT-An-dl4" secondAttribute="trailing" id="Iuu-Mj-b1s"/>
-                            <constraint firstItem="UqT-An-dl4" firstAttribute="top" secondItem="x9j-H6-FAi" secondAttribute="bottom" id="JET-h9-YYu"/>
-                            <constraint firstItem="HHZ-CR-eQ9" firstAttribute="bottom" secondItem="UqT-An-dl4" secondAttribute="bottom" id="Q8t-Gr-Gyx"/>
-                            <constraint firstItem="UqT-An-dl4" firstAttribute="leading" secondItem="HHZ-CR-eQ9" secondAttribute="leading" id="ST2-I5-QW1"/>
+                            <constraint firstItem="x9j-H6-FAi" firstAttribute="trailing" secondItem="UqT-An-dl4" secondAttribute="trailing" id="3HB-aX-tuf"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="top" secondItem="a7R-ms-aPV" secondAttribute="bottom" constant="10" id="9jl-nw-Si1"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="leading" secondItem="HHZ-CR-eQ9" secondAttribute="leading" id="CZI-RF-3pA"/>
+                            <constraint firstItem="a7R-ms-aPV" firstAttribute="top" secondItem="x9j-H6-FAi" secondAttribute="bottom" constant="10" id="Cjh-uF-8Cr"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="bottom" secondItem="HHZ-CR-eQ9" secondAttribute="bottom" id="O2A-BF-ebf"/>
                             <constraint firstItem="x9j-H6-FAi" firstAttribute="top" secondItem="HHZ-CR-eQ9" secondAttribute="top" id="TX3-9a-v17"/>
-                            <constraint firstItem="HHZ-CR-eQ9" firstAttribute="trailing" secondItem="UqT-An-dl4" secondAttribute="trailing" id="VXn-4U-6fh"/>
-                            <constraint firstItem="x9j-H6-FAi" firstAttribute="leading" secondItem="UqT-An-dl4" secondAttribute="leading" id="VYs-vL-XFF"/>
+                            <constraint firstItem="UqT-An-dl4" firstAttribute="trailing" secondItem="HHZ-CR-eQ9" secondAttribute="trailing" id="fI5-4F-ZRi"/>
+                            <constraint firstItem="a7R-ms-aPV" firstAttribute="centerX" secondItem="Pzg-pg-3qb" secondAttribute="centerX" id="pae-NI-494"/>
+                            <constraint firstItem="x9j-H6-FAi" firstAttribute="leading" secondItem="UqT-An-dl4" secondAttribute="leading" id="uxS-JX-RpH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="grocery" selectedImage="grocery" id="Df9-GL-aR9">
@@ -399,12 +411,13 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="addItemBtn" destination="0gh-Qd-i2p" id="tiN-dR-s3y"/>
                         <outlet property="griceriesTable" destination="UqT-An-dl4" id="Asi-pY-SWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVp-Kl-DXY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-973" y="1406"/>
+            <point key="canvasLocation" x="-973.28244274809151" y="1404.9295774647887"/>
         </scene>
         <!--Family View Controller-->
         <scene sceneID="5ic-2h-wOB">
@@ -572,7 +585,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passowrd" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x56-2z-7Id">
                                 <rect key="frame" x="40" y="444" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-IL-RRy">
                                 <rect key="frame" x="55" y="627" width="283" height="35"/>
@@ -587,11 +600,11 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caf-FV-Akl">
                                 <rect key="frame" x="40" y="498" width="313" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfU-lI-yZd">
                                 <rect key="frame" x="60" y="542" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

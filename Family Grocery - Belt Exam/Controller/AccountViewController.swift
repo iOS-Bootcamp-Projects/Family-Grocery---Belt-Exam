@@ -15,6 +15,7 @@ import FacebookLogin
 import GoogleSignIn 
 class AccountViewController: UIViewController {
 
+    //MARK: Connections
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextFiled: UITextField!
     @IBOutlet weak var emailTextFiled: UITextField!
@@ -25,6 +26,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var selectPhoto: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
     
+    //MARK: Vars
     
     var userID = String()
     var user = [NSDictionary]()
@@ -40,16 +42,11 @@ class AccountViewController: UIViewController {
 
     }
     
-
-    
-    
-    
-    
     func getUserInfo() {
         
         let dbRef : DatabaseReference!
-        dbRef = Database.database().reference().child("Users").child("\(userID)")
-        dbRef.observe(.value) { userInfo , err  in
+            dbRef = Database.database().reference().child("Users").child("\(userID)")
+            dbRef.observe(.value) { userInfo , err  in
             
             if let user = userInfo.value as? NSDictionary {
                 self.nameTextFiled.text = user["fullName"] as? String
@@ -57,21 +54,18 @@ class AccountViewController: UIViewController {
                 self.passwordTextFiled.text = user["password"] as? String
                 
                 let storageRef = Storage.storage().reference().child("\(user["profileImage"] as! String)")
-                          storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                    storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
                               
                               if error == nil {
                                   self.profileImageView.image = UIImage(data: data!)
-                                 
                               }
                           }
-                
-            }
-        }
-        
-    }
+                        }
+                    }
+                }
     
     
-    // MARK: - Customize
+    // MARK: - Customizing
     
     func editMode(){
         
@@ -105,16 +99,15 @@ class AccountViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         
-        let loginManager = LoginManager()
-        
         // singout from facebook account
-        let firebaseAuth = Auth.auth()
-        
+        let loginManager = LoginManager()
+                
         // singout from google account
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
+        let firebaseAuth = Auth.auth()
         
         do{
             
@@ -130,14 +123,18 @@ class AccountViewController: UIViewController {
             //go to login screen
             let storBoard = UIStoryboard(name: "Main", bundle: nil)
             let loginView = storBoard.instantiateViewController(withIdentifier: "LoginView")
-            loginView.modalPresentationStyle = .fullScreen
+                loginView.modalPresentationStyle = .fullScreen
             present(loginView, animated: true)
-            
             
         } catch{
             print("error")
         }
     }// logout
+    
+    @IBAction func cancel(_ sender: Any) {
+        screenMode = 0
+        normalMode()
+    }
     
     @IBAction func editAccount(_ sender: Any) {
         
@@ -162,29 +159,22 @@ class AccountViewController: UIViewController {
                             } else {
                                 
                                 var dbRef : DatabaseReference!
-                                dbRef = Database.database().reference().child("Users").child("\(self.userID)")
-                                dbRef.updateChildValues(["fullName":self.nameTextFiled.text!,"email":self.emailTextFiled.text!,"password":self.passwordTextFiled.text!])
+                                    dbRef = Database.database().reference().child("Users").child("\(self.userID)")
+                                    dbRef.updateChildValues(["fullName":self.nameTextFiled.text!,"email":self.emailTextFiled.text!,"password":self.passwordTextFiled.text!])
                                 
+                                // send alert to the user
                                 let alert = UIAlertController(title: "Success", message: "you need to log in again \n By clicking on 'Ok' the system will logout you automatically ", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "Ok", style: .cancel){ handler in
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel){ handler in
                                     self.logout(self)
                                 })
                                 self.present(alert, animated: true)
                                 
-                                
-                            }
-                        })
-                    }
-                })
-                
+                            } // end of else
+                        }) // end of updatePassword
+                    }// end of else
+                })// end of updateEmail
             }
-            
         }
         
-    }
-    
-    @IBAction func cancel(_ sender: Any) {
-        screenMode = 0
-       normalMode()
     }
 }
