@@ -12,6 +12,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 import FacebookLogin
+import GoogleSignIn 
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -103,13 +104,23 @@ class AccountViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func logout(_ sender: Any) {
+        
         let loginManager = LoginManager()
+        
+        // singout from facebook account
         let firebaseAuth = Auth.auth()
+        
+        // singout from google account
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
         
         do{
             
             try firebaseAuth.signOut()
             loginManager.logOut()
+            GIDSignIn.sharedInstance.signOut()
             
             // remove the user from online
             var dbRef : DatabaseReference!

@@ -10,6 +10,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseFirestore
 import FirebaseAuth
+
 class GroceryViewController: UIViewController {
     
     
@@ -78,22 +79,23 @@ class GroceryViewController: UIViewController {
         
         let dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Grocery")
+        
 
         dbRef.observe(.value) { snapShot , err in
-            
+           
+            self.groceries.removeAll()
                 if let groceries = snapShot.value as? NSDictionary {
-                    self.groceries.removeAll()
-    
-                    DispatchQueue.main.async {
-                        self.groceries.removeAll()
                         for grocery in groceries {
                             self.groceries.append(grocery.value as! NSDictionary)
                         }
-                        
+                       
                         self.griceriesTable.reloadData()
                        
-                    }
-            }
+
+                } else{
+                    
+                    self.griceriesTable.reloadData()
+                }
         }
         
     }

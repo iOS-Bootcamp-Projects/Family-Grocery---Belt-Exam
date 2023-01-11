@@ -17,6 +17,14 @@ struct Grocery:Codable {
     var creatorEmail:String 
 }
 
+struct User:Codable {
+    var id:String
+    var name:String
+    var email: String 
+    var password:String
+    var profileImage: String 
+}
+
 
 //class GroceryModel: ObservableObject {
 //    

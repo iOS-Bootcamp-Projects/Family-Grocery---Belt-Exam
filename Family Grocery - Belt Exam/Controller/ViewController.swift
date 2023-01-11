@@ -12,6 +12,8 @@ import FirebaseFirestore
 import FacebookLogin
 import FirebaseDatabase
 import FirebaseStorage
+import GoogleSignIn
+import GoogleSignInSwift
 class ViewController: UIViewController {
 
   
@@ -22,15 +24,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var passwordTextFiled: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         loginBtn.layer.cornerRadius = 15
-        
         singUpBtn.layer.cornerRadius = 15
         errorMessage.isHidden = true
-       
+        
         
         if let token = AccessToken.current,
            !token.isExpired {
@@ -39,10 +42,11 @@ class ViewController: UIViewController {
         } else {
             facebookLoginBtn.delegate = self
         }
-        
+       
     }
     
     
+   
     func loginFromFacebook(token: AccessToken) {
        
             let token = token.tokenString
@@ -57,7 +61,9 @@ class ViewController: UIViewController {
                     if let profileImage = userInfo["picture"] as? NSDictionary {
                         
                         if let imageData = profileImage["data"] as? NSDictionary {
-                            
+                            print("💜")
+                            print(imageData["url"] as! String)
+                            print("💜")
                             if let  imageURL = URL(string: imageData["url"] as! String) {
                                 
                                 URLSession.shared.dataTask(with: imageURL) { data, response, error in
@@ -159,6 +165,110 @@ class ViewController: UIViewController {
             
         }
     }//login
+    
+   
+    @IBAction func loginUsingGoogle(_ sender: Any) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult , err in
+            
+            if err != nil {
+                self.errorMessage.isHidden = false
+                self.errorMessage.text = "\(err!.localizedDescription)"
+            } else {
+                let signInResult = signInResult?.user
+                
+                self.singinUsingGoogle(signInResult: signInResult!)
+                
+            }
+        }
+    }
+    
+    
+    func singinUsingGoogle(signInResult:GIDGoogleUser) {
+        
+        
+        var userID = String()
+        let userName = "\(signInResult.profile!.givenName!) \(signInResult.profile!.familyName!)"
+        let userEmail = "\(signInResult.profile!.email)"
+        let userPassword = ""
+        let userImageProfile = "\(signInResult.profile!.imageURL(withDimension: 300)!)"
+        let path = "profileImages/go\(userID).png"
+        
+        // generate id for the user
+        
+        for chart in userEmail {
+            if chart != "." {
+                
+                if chart != "@" {
+                    let indexItem = userID.index(userID.endIndex, offsetBy: 0)
+                    userID.insert(chart, at: indexItem)
+                }
+                
+            }
+        }
+        
+        
+        // save profile image to the storage
+        
+        if let  imageURL = URL(string: userImageProfile) {
+            
+            URLSession.shared.dataTask(with: imageURL) { data, response, error in
+                
+                // upload image to storage
+                DispatchQueue.main.async {
+                    
+                    
+                    let storageRef : StorageReference!
+                    storageRef = Storage.storage().reference().child(path)
+                    storageRef.putData(data!)
+                    
+                }
+            }.resume()
+        } // end of imageURL
+        
+        // save user information to the database
+        let user = User(id: userID, name: userName,email: userEmail, password: userPassword, profileImage: path)
+        
+        var dbRef : DatabaseReference!
+        dbRef = Database.database().reference().child("Users").child("\(userID)")
+        
+        dbRef.setValue(["fullName":user.name,"email":user.email,"password":user.password,"profileImage":user.profileImage])
+        
+        // add the user in online list
+        
+        var onlineDatbaseRef : DatabaseReference!
+        onlineDatbaseRef = Database.database().reference().child("Online").child("\(userID)")
+        onlineDatbaseRef.setValue(userEmail)
+        
+        // navigate to home
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeView = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
+        
+        //pass id to screens
+        
+        let groceryView = homeView.viewControllers![0] as! GroceryViewController
+        let familyView = homeView.viewControllers![1] as! FamilyViewController
+        let accountView = homeView.viewControllers![2] as! AccountViewController
+        
+        groceryView.userID = userID
+        groceryView.userEmail = userEmail
+        familyView.userID = userID
+        accountView.userID = userID
+        
+        homeView.modalPresentationStyle = .fullScreen
+        self.present(homeView, animated: true)
+        
+    }
+    
+   
+    
 }
 
 extension ViewController: LoginButtonDelegate{
@@ -174,5 +284,8 @@ extension ViewController: LoginButtonDelegate{
         print("logout")
     }
     
-    
 }
+
+
+
+

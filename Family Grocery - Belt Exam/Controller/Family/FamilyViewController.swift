@@ -32,12 +32,11 @@ class FamilyViewController: UIViewController {
         var dbRef : DatabaseReference!
         dbRef = Database.database().reference().child("Online")
         dbRef.observe(.value) { snapshot , err in
-            
+            self.users.removeAll()
             if let usersOnline = snapshot.value as? NSDictionary {
-                self.users.removeAll()
                 for user in usersOnline {
                     
-                    if self.userID != user.key as? String {
+                    if self.userID != user.key as? String  {
                         
                         var usersDbRef : DatabaseReference!
                         usersDbRef = Database.database().reference().child("Users").child("\(user.key)")
@@ -52,10 +51,14 @@ class FamilyViewController: UIViewController {
                                
                             }
                         }
+                    } else if self.users.count == 0 {
+                        self.familOnlineTabel.reloadData()
                     }
                 }
                 
                 
+            } else{
+                self.familOnlineTabel.reloadData()
             }
         }
         

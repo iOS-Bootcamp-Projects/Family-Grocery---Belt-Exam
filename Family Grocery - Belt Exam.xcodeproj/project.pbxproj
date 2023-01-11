@@ -14,6 +14,8 @@
 		3F2A300C296CD9F1006FEF1F /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A300B296CD9F1006FEF1F /* FacebookLogin */; };
 		3F2A300E296CD9F1006FEF1F /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3F2A300D296CD9F1006FEF1F /* FacebookShare */; };
 		3F66ADD5296BEEF000E0FAAB /* FamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F66ADD4296BEEF000E0FAAB /* FamilyTableViewCell.swift */; };
+		3F6ED870296DECFE00C31634 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6ED86F296DECFE00C31634 /* GoogleSignIn */; };
+		3F6ED872296DECFE00C31634 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3F6ED871296DECFE00C31634 /* GoogleSignInSwift */; };
 		3F82A127296C4206005C897D /* CustomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F82A126296C4206005C897D /* CustomeView.swift */; };
 		3FAAAB7D296B33AE007B1495 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAAB7C296B33AE007B1495 /* TabBarViewController.swift */; };
 		3FC96632296AA81200748EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FC96631296AA81200748EFC /* GoogleService-Info.plist */; };
@@ -65,9 +67,11 @@
 				3F2A300E296CD9F1006FEF1F /* FacebookShare in Frameworks */,
 				3FC9663B296AA8C900748EFC /* FirebaseStorage in Frameworks */,
 				3F2A300A296CD9F1006FEF1F /* FacebookGamingServices in Frameworks */,
+				3F6ED872296DECFE00C31634 /* GoogleSignInSwift in Frameworks */,
 				3FC96635296AA8C900748EFC /* FirebaseAuth in Frameworks */,
 				3F2A300C296CD9F1006FEF1F /* FacebookLogin in Frameworks */,
 				3FC96639296AA8C900748EFC /* FirebaseFirestore in Frameworks */,
+				3F6ED870296DECFE00C31634 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +176,8 @@
 				3F2A3009296CD9F1006FEF1F /* FacebookGamingServices */,
 				3F2A300B296CD9F1006FEF1F /* FacebookLogin */,
 				3F2A300D296CD9F1006FEF1F /* FacebookShare */,
+				3F6ED86F296DECFE00C31634 /* GoogleSignIn */,
+				3F6ED871296DECFE00C31634 /* GoogleSignInSwift */,
 			);
 			productName = "Family Grocery - Belt Exam";
 			productReference = 3FFAB813296A9CAF007B7FBD /* Family Grocery - Belt Exam.app */;
@@ -204,6 +210,7 @@
 			packageReferences = (
 				3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				3F6ED86E296DECFE00C31634 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 3FFAB814296A9CAF007B7FBD /* Products */;
 			projectDirPath = "";
@@ -472,6 +479,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		3F6ED86E296DECFE00C31634 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = exactVersion;
+				version = 7.0.0;
+			};
+		};
 		3FC96633296AA8C900748EFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -502,6 +517,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3F2A3006296CD9F1006FEF1F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
+		};
+		3F6ED86F296DECFE00C31634 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6ED86E296DECFE00C31634 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		3F6ED871296DECFE00C31634 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F6ED86E296DECFE00C31634 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		3FC96634296AA8C900748EFC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -23,22 +23,41 @@
                                     <constraint firstAttribute="height" constant="300" id="3nL-S9-H5U"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgU-KB-FCk">
+                                <rect key="frame" x="25" y="701" width="343" height="17"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1qT-Nj-JLd">
+                                <rect key="frame" x="156.66666666666666" y="728" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="93n-3u-pVb"/>
+                                    <constraint firstAttribute="height" constant="80" id="ond-7U-xkD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BWv-bv-okK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7bs-gU-FmG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cgU-KB-FCk" secondAttribute="trailing" constant="25" id="M6S-ch-5AS"/>
+                            <constraint firstItem="1qT-Nj-JLd" firstAttribute="top" secondItem="cgU-KB-FCk" secondAttribute="bottom" constant="10" id="PZE-aY-WVE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1qT-Nj-JLd" secondAttribute="bottom" constant="10" id="Y96-Ym-1lp"/>
+                            <constraint firstItem="cgU-KB-FCk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="aq1-Vy-Znc"/>
+                            <constraint firstItem="1qT-Nj-JLd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bZK-PX-dul"/>
                             <constraint firstItem="BWv-bv-okK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lyY-sf-X4q"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo" width="800" height="800"/>
+        <image name="myLogo" width="1680" height="1176"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
